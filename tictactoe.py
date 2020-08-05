@@ -39,7 +39,7 @@ def play(player, symbol, scheme=scheme):
             elif 7 <= position <= 9: scheme[2][position-7] = symbol
             break
 
-def check_win(nome, symbol, scheme=scheme):
+def check_win(name, symbol, scheme=scheme):
     """
     Check if a player has won otherwise report a tie
     """
@@ -52,13 +52,13 @@ def check_win(nome, symbol, scheme=scheme):
         scheme[0][0] == symbol and scheme[1][1] == symbol and scheme[2][2] == symbol or
         scheme[0][2] == symbol and scheme[1][1] == symbol and scheme[2][0] == symbol):
         draw_scheme()
-        print(f"{nome} you won!")
+        print(f"{name} you won!")
         sys.exit() 
     elif (scheme[0][0] != 1 and scheme[0][1] != 2 and scheme[0][2] != 3 and
           scheme[1][0] != 4 and scheme[1][1] != 5 and scheme[1][2] != 6 and
           scheme[2][0] != 7 and scheme[2][1] != 8 and scheme[2][2] != 9):
           draw_scheme()
-          print("Tie!")
+          print("Draw!")
           sys.exit()
         
 def main():
