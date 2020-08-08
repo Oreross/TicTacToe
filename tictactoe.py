@@ -12,7 +12,7 @@ def clear_screen():
     elif system().lower() == "windows":
         os.system("cls")
 
-def draw_scheme(scheme=scheme):
+def draw_scheme():
     """Draw tic tac toe scheme"""
     print("\t", scheme[0][0], "\t║\t", scheme[0][1], "\t║\t", scheme[0][2])
     print("════════════════╬═══════════════╬═════════════════")
@@ -21,7 +21,7 @@ def draw_scheme(scheme=scheme):
     print("\t", scheme[2][0], "\t║\t", scheme[2][1], "\t║\t", scheme[2][2])
 
 
-def play(player, symbol, scheme=scheme):
+def play(player, symbol):
     """Allows the player to select a position"""
     while True:
         try:
@@ -39,7 +39,7 @@ def play(player, symbol, scheme=scheme):
             elif 7 <= position <= 9: scheme[2][position-7] = symbol
             break
 
-def check_win(name, symbol, scheme=scheme):
+def check_win(name, symbol):
     """
     Check if a player has won otherwise report a tie
     """
@@ -63,18 +63,17 @@ def check_win(name, symbol, scheme=scheme):
         
 def main():
     """main function"""
-    print("Let's play!")
     player1 = input("Player1 Enter your name: ").strip().title()
     player2 = input("Player2 Enter your name: ").strip().title()
-    players = ((player1,"X"),(player2,"O"))
+    players = ((player1,"X"), (player2,"O"))
     round = randint(0,1)
     print(f"{players[round][0]} starts...")
     while True:
         round %= 2
         draw_scheme()
-        play(players[round][0],players[round][1])
+        play(players[round][0], players[round][1])
         clear_screen()
-        check_win(players[round][0],players[round][1])
+        check_win(players[round][0], players[round][1])
         round += 1
 
 if __name__ == '__main__':
